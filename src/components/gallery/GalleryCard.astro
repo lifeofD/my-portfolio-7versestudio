@@ -1,0 +1,378 @@
+---
+const images = [
+  {
+    id: "alpine-stay",
+    src: "/gallerymain/alpine-stay.webp",
+    alt: "A hero page with logo and navigation and showing surfers doing and standing with surfboard in snow covered hills.",
+  },
+  {
+    id: "different-screen-size-mockup",
+    src: "/gallerymain/different-screen-size-mockup.webp",
+    alt: "A mobile phone, a tablet and a laptop showing hero section with different screen sizes.",
+  },
+  {
+    id: "interium",
+    src: "/gallerymain/interium.webp",
+    alt: "A hero page with logo and navigation and showing interior design of living room pastel color walls and sofa in beige.",
+  },
+  {
+    id: "a-wooden-house-in-mountains",
+    src: "/gallerymain/a-wooden-house-in-mountains.webp",
+    alt: "Illustration image of mountains and a wooden house in middle of forest hills surrounded by trees.",
+  },
+  {
+    id: "landing-page-showcase",
+    src: "/gallerymain/landing-page-showcase.webp",
+    alt: "An image with multiple landing pages lined up in a row and showing different services.",
+  },
+  {
+    id: "nature-pure-landing-page.webp",
+    src: "/gallerymain/nature-pure-landing-page.webp",
+    alt: "A landing page about nature retreat with hills, waterfalls, lake, beach, wildlife and forest.",
+  },
+  {
+    id: "nature-pure",
+    src: "/gallerymain/nature-pure.webp",
+    alt: "A hero page for nature excursion with lake and mountain scenery.",
+  },
+  {
+    id: "nested-home-page",
+    src: "/gallerymain/nested-home-page.webp",
+    alt: "A hero page of nested website which deals indoor plants and decoration, showing multiple plants in indoor environment.",
+  },
+  {
+    id: "large-tree-and-man-standing-beside-him-in-hills",
+    src: "/gallerymain/large-tree-and-man-standing-beside-him-in-hills.webp",
+    alt: "Illustration of green mountains with large pine tree in middle and a human standing next to it.",
+  },
+  {
+    id: "paw-safewebsite",
+    src: "/gallerymain/paw-safewebsite.webp",
+    alt: "A hero page with different breeds of dog showing with main focus on grooming of pets animals and their care.",
+  },
+  {
+    id: "studio-feather",
+    src: "/gallerymain/studio-feather.webp",
+    alt: "A hero page of handcrafted items like bowls, earth materials, wooden items and wool fibre.",
+  },
+  {
+    id: "trail-forge-landing-page",
+    src: "/gallerymain/trail-forge-landing-page.webp",
+    alt: "A website which shows snow covered mountains it is a website for finding and sharing trails.",
+  },
+  {
+    id: "trail-forge-mobile-view",
+    src: "/gallerymain/trail-forge-mobile-view.webp",
+    alt: "A website in mobile view which shows snow covered mountains it is a website for finding and sharing trails.",
+  },
+  {
+    id: "viatmin-glow",
+    src: "/gallerymain/viatmin-glow.webp",
+    alt: "A hero page of a website of special clinic which deal in rejuvenating your face and a women with soft and smooth skin applying toner.",
+  },
+  {
+    id: "anested-landing-page",
+    src: "/gallerymain/nested-landing-page.webp",
+    alt: "A nested website page showing multiple plants to decorate your home, green plant pots with different types of plants.",
+  },
+  
+  
+];
+---
+
+
+
+<main class="gallery">
+  <!-- Lightbox -->
+<dialog id="lightbox" class="lightbox">
+  <button id="close-lightbox" aria-label="Close">&times;</button>
+  
+  <!-- Navigation Buttons -->
+  <button id="prev-lightbox" class="nav-btn" aria-label="Previous image">&#10094;</button>
+  
+  <img id="lightbox-img" src="" alt="Expanded view" />
+  
+  <button id="next-lightbox" class="nav-btn" aria-label="Next image">&#10095;</button>
+</dialog>
+
+<!--  Code for images -->
+  {images.map((image) => (
+    <figure id={image.id} class="gallery-item">
+      <img
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  ))}
+</main>
+
+
+<script>
+  const dialog = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close-lightbox');
+  const prevBtn = document.getElementById('prev-lightbox');
+  const nextBtn = document.getElementById('next-lightbox');
+  
+  // Convert NodeList to an Array so we can easily track the index
+  const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  let currentIndex = 0;
+
+  // Reusable function to update the image based on index
+  function showImage(index) {
+    // Wrap around logic (if at start, go to end. If at end, go to start)
+    if (index < 0) index = galleryImages.length - 1;
+    if (index >= galleryImages.length) index = 0;
+    
+    currentIndex = index;
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+  }
+
+  // 1. Open Lightbox
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      showImage(index);
+      dialog.showModal();
+    });
+  });
+
+  // 2. Button Listeners
+  closeBtn.addEventListener('click', () => dialog.close());
+  
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevents the backdrop click from triggering
+    showImage(currentIndex - 1);
+  });
+  
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevents the backdrop click from triggering
+    showImage(currentIndex + 1);
+  });
+
+  // 3. Close on backdrop click
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  // 4. Keyboard Navigation (Arrow Keys)
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      showImage(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      showImage(currentIndex + 1);
+    }
+    // Note: The 'Escape' key naturally closes the <dialog> without us writing code for it!
+  });
+
+
+
+    // --- NEW: Touch / Swipe Navigation for Mobile ---
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function handleSwipe() {
+    // The user must swipe at least 50 pixels for it to count (prevents accidental taps)
+    const swipeThreshold = 50; 
+    
+    if (touchEndX < touchStartX - swipeThreshold) {
+      // Swiped Left -> Show Next Image
+      showImage(currentIndex + 1); 
+    }
+    
+    if (touchEndX > touchStartX + swipeThreshold) {
+      // Swiped Right -> Show Previous Image
+      showImage(currentIndex - 1); 
+    }
+  }
+
+  // 1. Record where the finger touches down
+  dialog.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  // 2. Record where the finger lifts up and calculate the swipe
+  dialog.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+</script>
+
+
+
+<style>
+
+/* Previous base styling (keep this) */
+.gallery-item img { cursor: zoom-in; }
+
+/* 1. Force the dialog to act as a full-screen flex container */
+dialog.lightbox[open] {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  
+  /* Flexbox perfectly centers the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2. The background blur */
+.lightbox::backdrop {
+  background: var(--primary-background-70op);
+  backdrop-filter: blur(8px);
+}
+
+/* 3. The Image */
+#lightbox-img {
+  /* 85vw leaves room on the left/right for the arrows so they don't overlap! */
+  max-width: 85vw; 
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 4. Button Styling */
+.nav-btn, #close-lightbox {
+  position: absolute;
+  background: var(--secondary-background);
+  color: var(--primary-text-color);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover, #close-lightbox:hover {
+  background: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  /* Completely hide the arrows on mobile screens */
+  .nav-btn { 
+    display: none; 
+  }
+}
+
+/* 5. Position Buttons relative to the screen edges */
+#close-lightbox {
+  top: 24px;
+  right: 32px;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 4px 16px;
+  border-radius: 8px;
+  background: transparent; /* Makes the X button blend in better */
+}
+
+#close-lightbox:hover {
+  background: transparent;
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.nav-btn {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  padding: 16px 20px;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* Dock arrows to the left and right of the screen */
+#prev-lightbox { left: 24px; }
+#next-lightbox { right: 24px; }
+
+/* Move them slightly tighter on mobile */
+@media (max-width: 768px) {
+  #prev-lightbox { left: 8px; padding: 12px 16px; }
+  #next-lightbox { right: 8px; padding: 12px 16px; }
+  #lightbox-img { max-width: 95vw; } /* Allow image to be wider on mobile */
+}
+
+  .gallery {
+    columns: 1;
+    column-gap: 8px;
+    padding: 8px;
+    margin-top: 36px;
+  }
+
+
+
+
+@media (min-width: 320px) {
+    .gallery {
+      columns: 2;
+    }
+  }
+
+
+  @media (min-width: 640px) {
+    .gallery {
+      columns: 3;
+    }
+  }
+  @media (max-width: 640px) {
+    .gallery {
+      column-gap: 4px;
+      padding: 4px;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .gallery {
+      columns: 4;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .gallery {
+      columns: 5;
+    }
+  }
+
+  @media (min-width: 1680px) {
+    .gallery {
+      columns: 5;
+    }
+  }
+
+ @media (min-width: 2140px) {
+    .gallery {
+      columns: 6;
+    }
+  }
+
+  .gallery-item {
+    break-inside: avoid;
+      margin-bottom: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .gallery-item {
+      margin-bottom: 4px;
+    }
+  }
+
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.01);
+  }
+
+</style>

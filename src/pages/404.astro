@@ -1,0 +1,100 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="404 - Page Not Found">
+  <div class="error-page">
+    <div class="error-content">
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Page Not Found</h2>
+      <p class="error-message">
+        The page you are looking for doesn't exist or has been moved. Let's get you back on track.
+      </p>
+      <a href="/" class="home-btn">
+        <span class="btn-text">Return to Home</span>
+        <svg
+          width="32" 
+          height="20" 
+          viewBox="0 0 32 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          class="arrow-icon"
+        >
+          <line x1="2" y1="12" x2="27" y2="12"></line>
+          <polyline points="20 5 27 12 20 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .error-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+  }
+
+  .error-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .error-code {
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: var(--big-text-black-weight, 900);
+    line-height: 1;
+    margin: 0;
+    color: var(--accent-color, #014baa);
+  }
+
+  .error-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: var(--h1-regular-weight, 400);
+    color: var(--primary-text-color, #f8f3f0);
+    margin: 0;
+  }
+
+  .error-message {
+    font-size: var(--text-lg-size, 1.25rem);
+    color: var(--secondary-text-color, #a2a7ae);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: var(--text-sm-lineheight, 1.5rem);
+  }
+
+  .home-btn {
+    margin-top: 24px;
+    padding: 12px 32px;
+    border-radius: 50px;
+    background-color: var(--primary-text-color, #f8f3f0);
+    color: var(--accent-color, #014baa);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--text-lg-size, 1.25rem);
+    font-weight: var(--h2-medium-weight, 500);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .home-btn:hover {
+    box-shadow: 4px 4px 0 0 var(--accent-color, #014baa);
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .home-btn:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+</style>

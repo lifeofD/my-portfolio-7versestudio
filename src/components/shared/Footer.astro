@@ -1,0 +1,244 @@
+---
+---
+<footer>
+  <div class="footer-wrap">
+  <section class="section--all">
+    <div class="footer">
+      <div class="grid-7">
+        <div class="logo-grid-div">
+          <div class="logo-tex-wrap">
+            <h1 class="logo">
+              7 VERSE
+            </h1>
+          </div>
+        </div>
+        <div class="div-block-44">
+          <p class="paragraph-9">
+            Get in touch...
+          </p>
+          <div class="div-empty"></div>
+          <div class="div-block-45">
+            <h2 class="heading-14">
+              Start a Project
+            </h2>
+            <div class="footer-contact">
+              <a href="/contact" class="link-2">
+                Contact us
+                <svg
+    width="32" 
+    height="20" 
+    viewBox="0 0 32 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    class="arrow-icon"
+  >
+    <line x1="2" y1="12" x2="27" y2="12"></line>
+    <polyline points="20 5 27 12 20 19"></polyline>
+  </svg>
+              </a>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="end-text-div">
+      <p class="end-text">
+        © 2026 | 7 VERSE STUDIO | ALL RIGHTS RESERVED
+      </p>
+    </div>
+  </section>
+</div>
+</footer>
+
+
+<style>
+
+
+.footer-wrap {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .footer-wrap {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .footer-wrap {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+.footer-wrap {
+  padding-top: 96px;
+  padding-bottom: 8px;
+  background-image: url("/footer-image.webp");
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+@media screen and (max-width: 479px) {
+  .footer-wrap {
+    padding-top: 72px;
+  }
+}
+
+.footer {
+  padding: 16px;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+}
+
+.grid-7 {
+  display: grid;
+    grid-auto-columns: 1fr;
+  align-items: end;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 16px;
+  padding:0px
+}
+
+@media screen and (max-width: 767px) {
+  .grid-7 {
+    grid-template-rows: auto auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo-grid-div {
+    grid-area: span 1 / span 3 / span 1 / span 3;
+  }
+}
+
+
+
+.logo-tex-wrap {
+  position: relative;
+}
+
+.logo {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--primary-text-color);
+  font-size: var(--h1-regular-size);
+  font-weight: var(--big-text-black-weight);
+}
+
+
+
+.div-block-44 {
+  padding: 24px;
+  border-radius: 3px;
+  background-color: var(--primary-text-color);
+  grid-area: span 1 / span 2 / span 1 / span 2;
+}
+
+@media screen and (max-width: 767px) {
+  .div-block-44 {
+    padding: 12px;
+    grid-column: span 3 / span 3;
+  }
+}
+
+.paragraph-9 {
+  color: var(--primary-background);
+}
+
+.div-empty {
+  padding-top: 90px;
+  padding-right: 0px;
+  padding-bottom: 90px;
+}
+
+@media screen and (max-width: 991px) {
+  .div-empty {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .div-empty {
+    padding-top: 0px;
+  }
+}
+
+.div-block-45 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+}
+
+
+@media screen and (max-width: 479px) {
+  .div-block-45 {
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.heading-14 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--primary-background);
+  font-size: var(--h1-regular-size);
+  font-weight: var(--h1-regular-weight);
+}
+
+.footer-contact {
+  display: flex;
+}
+
+.link-2 {
+  color: var(--primary-background);
+  font-size: var(--text-lg-size);
+  font-weight: var(--h1-regular-weight);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  /* Hover effect: moves the arrow to the right */
+  .link-2:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+
+
+
+.end-text-div {
+  padding: 0px;
+}
+
+.end-text {
+  margin-bottom: 0px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  color: var(--primary-text-color);
+  font-weight: var(--h1-light-weight);
+}
+
+@media screen and (max-width: 479px) {
+  .end-text {
+    font-size: 12px;
+  }
+}
+
+
+</style>

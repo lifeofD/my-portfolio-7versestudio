@@ -1,0 +1,306 @@
+---
+---
+<div class="work-wrap">
+  <section class="section--all">
+    <h2 class="work-heading">
+    WORK
+  </h2>
+  </section>
+   <div class="work-slider-wrap">
+    <section class="work-slider">
+  <div class="slider">
+    <div class="slider-track" id="sliderTrack">
+      <div class="slide">
+        <img src="/leantech.webp" alt="leantech landing page with digital signgae display" />
+        <h2 class="project-text">LeanTech</h2>
+      </div>
+
+      <div class="slide">
+        <img src="/vision-eye-care.webp" alt="doctor standing in its surgery clothes" />
+        <h2 class="project-text">Vision Eye Care</h2>
+      </div>
+
+      <div class="slide">
+        <img src="/kamal-nayan.webp" alt="doctor is checking patient through advance machine" />
+        <h2 class="project-text">Kamal Nayan Mithila Aankh Hospital</h2>
+      </div>
+
+      <div class="slide">
+        <img src="/jamalpur.webp" alt="couple of doctors standing together looking at a patient report" />
+        <h2 class="project-text">Jamalpur Netralaya</h2>
+      </div>
+
+      <div class="slide">
+        <img src="/chitara-eye.webp" alt="doctor is doing detailed examination of patient in a eye machine" />
+        <h2 class="project-text">Chitara Eye Foundation</h2>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="slider-controls">
+    <button id="prevBtn" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M15 18L9 12L15 6"
+          stroke="var(--primary-text-color)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <button id="nextBtn" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M9 18L15 12L9 6"
+          stroke="var(--primary-text-color)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </div>
+</section>
+  </div>
+</div>
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById("sliderTrack");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  // Vanilla JS safety check (fixes 'Object is possibly null' warnings)
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const slides = [...track.children];
+  let currentIndex = 0;
+
+  function getSlideWidth() {
+    const slide = slides[0];
+    const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+
+    // getBoundingClientRect() works on all generic Elements without throwing a TypeScript warning
+    return slide.getBoundingClientRect().width + gap;
+  }
+
+  function updateSlider() {
+    const offset = currentIndex * getSlideWidth();
+    track.style.transform = `translateX(-${offset}px)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+
+    if (currentIndex >= slides.length) {
+      currentIndex = 0;
+    }
+
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = slides.length - 1;
+    }
+
+    updateSlider();
+  });
+
+  window.addEventListener("resize", updateSlider);
+
+  updateSlider();
+});
+</script>
+
+
+
+
+
+<style>
+
+  /* MARGIN */
+
+    .section--all {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .section--all {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .section--all {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero {
+    background-image: none;
+  }
+}
+
+
+  .work-wrap {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  background-color: var(--secondary-background);
+}
+
+.work-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.work-heading {
+  margin-top: 0px;
+  margin-bottom: 48px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--secondary-text-color);
+  color: var(--primary-text-color);
+  font-size: var(--text-lg-size);
+  line-height: 18px;
+  font-weight: var(--h1-light-weight);
+}
+
+.work-slider-wrap {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.work-slider {
+    width: 100%;
+  }
+
+  .slider {
+    overflow: hidden;
+  }
+
+  .slider-track {
+    display: flex;
+    gap: 48px;
+    transition: transform 0.6s ease;
+  }
+
+  .slide {
+    flex: 0 0 calc(40% - 24px);
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 768px) {
+  .slider-track {
+    gap: 24px;
+  }
+  
+
+  .slide {
+    flex: 0 0 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+  .slide img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    transition:
+    transform 0.4s ease;
+  }
+
+  .slide:hover img {
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .slide img {
+    width: 80%;
+    margin-left: 3rem;
+  }
+}
+@media (max-width: 425px) {
+  .slide img {
+    margin-left: 2rem;
+  }
+}
+
+.project-text {
+  font-size: var(--text-sm-size);
+  font-weight: var(--h1-light-weight);
+  margin-top: 8px;
+  margin-left: 4px;
+}
+
+@media (max-width: 768px) {
+  .project-text {
+  margin-left: calc(3rem + 4px);
+   }
+}
+
+
+@media (max-width: 425px) {
+  .project-text {
+  margin-left: calc(2rem + 4px);
+  }
+}
+
+
+
+  .slider-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    margin-right: 5rem;
+  }
+
+  .slider-controls button {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid var(--primary-text-color);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-controls svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .slide {
+      flex: 0 0 100%;
+      padding-right: 0;
+    }
+
+    .slider-controls button {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+
+</style>

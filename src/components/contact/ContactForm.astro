@@ -1,0 +1,204 @@
+---
+---
+
+<div class="contact-form-wrap">
+  <div class="section--all">
+    <div class="contact-form-box">
+      <div class="grid-10">
+        <div class="form-grid-div-1">
+          <div class="text-block">
+            7 VERSE STUDIO
+          </div>
+          <h2 class="heading-17">
+            CONTACT
+          </h2>
+          <p class="paragraph-10">
+            "What’s your story? 
+            <br>
+            Let’s talk goals and how we can help you succeed."
+          </p>
+        </div>
+        <div class="form-grid-div-2">
+          <div>
+            <form id="contact-form" class="form-block" method="post" name="wf-form-Contact-Form" data-name="Contact Form" aria-label="Contact Form" >
+              <label for="name" class="field-label">Name</label>
+              <input class="text-field w-input" maxlength="256" name="name" data-name="Name" placeholder="enter name" type="text" id="name" required="">
+              <label for="email" class="field-label">Email Address</label>
+              <input class="text-field w-input" maxlength="256" name="email" data-name="Email" placeholder="putyouremail@email.com" type="email" id="email" required="">
+              <label for="field" class="field-label">Phone</label>
+              <input class="text-field w-input" maxlength="256" name="phohe" data-name="Field" placeholder="enter number" type="tel" id="field">
+              <label for="Message" class="field-label">Message</label>
+              <textarea class="text-field w-input" maxlength="5000" name="message" data-name="Message" placeholder="enter message" id="Message"></textarea>
+              <input type="submit" class="submit-button w-button" value="Submit">
+            </form>
+            <div id="success-message" style="display:none;">
+                Thank you! Your submission has been received!
+            </div>
+            <div id="error-message" style="display:none;">
+              Oops! Something went wrong while submitting the form.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<style>
+
+
+
+  /* MARGIN */
+
+  .contact-form-wrap {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .contact-form-wrap {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .contact-form-wrap {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .contact-form-wrap {
+    background-image: none;
+  }
+}
+
+
+.contact-form-wrap {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-color: var(--primary-background-70op);
+}
+
+.contact-form-box {
+  padding: 48px 24px;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgb(46, 46, 46);
+  border-radius: 8px;
+  background-color: rgb(15, 15, 15);
+  background-image: linear-gradient(190deg, black, var(--primary-background));
+}
+
+.grid-10 {
+  gap: 24px;
+  grid-template-rows: auto;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 767px) {
+  .grid-10 {
+    gap: 48px;
+    grid-template-rows: auto auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .form-grid-div-1 {
+    grid-area: span 1 / span 2 / span 1 / span 2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form-grid-div-2 {
+    grid-area: span 1 / span 2 / span 1 / span 2;
+  }
+}
+
+.text-block {
+  color: var(--secondary-text-color);
+  font-size: var(--text-sm-size);
+  font-weight: var(--text-weight);
+}
+
+.heading-17 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  color: var(--primary-text-color);
+  font-size: var(--h1-lineheight);
+  font-weight: var(--h2-medium-weight);
+}
+
+.paragraph-10 {
+  max-width: 250px;
+  margin-bottom: 0px;
+  color: var(--secondary-text-color);
+  font-size: var(--text-lg-size);
+  line-height: var(--text-lg-lineheight-less);
+}
+
+
+.form-block {
+  display: flex;
+  flex-flow: column;
+}
+
+.field-label {
+  color: var(--primary-text-color);
+  font-size: var(--text-sm-size);
+  font-weight: var(--h1-light-weight);
+  margin-bottom: 8px;
+}
+
+.text-field {
+  margin-bottom: 24px;
+  padding: 8px 12px 8px 24px;
+  border-style: none none solid;
+  border-width: 0.1px;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: #404040;
+  border-left-color: black;
+  background-color: var(--primary-background-40op);
+  background-clip: border-box;
+  color: var(--primary-text-color);
+}
+.submit-button {
+  display: block;
+  padding: 8px 24px;
+  justify-content: flex-end;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--secondary-text-color);
+  border-right-color: var(--secondary-text-color);
+  border-bottom-color: var(--secondary-text-color);
+  border-left-color: var(--secondary-text-color);
+  border-radius: 50px;
+  background-color: var(--primary-background-70op);
+  vertical-align: baseline;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-text-color);
+  color: var(--primary-background);
+}
+
+
+.w-button {
+    color: var(--primary-text-color);
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+
+</style>

@@ -1,0 +1,211 @@
+---
+// src/components/home/Header.astro
+---
+
+<header class="header-container">
+  <nav class="navbar">
+    <div class="nav-group">
+      <div class="nav-capsule">
+    <a href="/" class="nav-home" aria-label="7 Verse Studio Home">
+      <div class="glass-logo">
+        <div class="logo-box">7</div>
+        <div class="logo-text">VERSE</div>
+      </div>
+      <span class="studio-text">studio</span>
+    </a>
+
+    <div class="glass-menu">
+      <a href="/gallery">GALLERY</a>
+      <a href="/contact">CONTACT</a>
+      </div>
+    </div>
+    </div>
+  </nav>
+</header>
+
+
+<script>
+  
+</script>
+
+
+<style>
+    /* MARGIN */
+
+.header-container {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .header-container {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .header-container {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .header-container {
+    background-image: none;
+  }
+}
+
+
+
+
+  /* HEADER CONTAINER - Sticky setup */
+  .header-container {
+    position: sticky;
+    top: 24px; /* 24px away from top */
+    z-index: 100; /* Ensure it stays above other content */
+    width: 100%;
+    /* Note: We will leave the structure flexible here so your future GSAP ScrollTrigger can animate .nav-left and .glass-menu together to the center */
+  }
+
+  @media (max-width: 767px) {
+  .header-container {
+    top: 20px;
+  }
+}
+  @media (max-width: 479px) {
+  .header-container {
+    top: 12px;
+  }
+}
+
+
+  /* NAVBAR */
+  .navbar {
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-group{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+
+.nav-capsule{
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin: 0 auto;
+
+  border-radius: 50px;
+
+  /* Glass effect on the full wrapper from the start */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  padding: 10px 24px;
+}
+
+  /* LEFT SIDE */
+.nav-home {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-home:hover {
+  opacity: 0.9; /* optional */
+}
+
+/* MOBILE STACKING (Below 440px) */
+@media (max-width: 440px) {
+  .nav-capsule {
+    flex-direction: column; /* Stacks the logo above the menu */
+    justify-content: center;
+    gap: 12px; /* Added breathing room */
+    border-radius: 200px;
+  }
+
+  .nav-home, 
+  .glass-menu {
+    width: 100%;
+    justify-content: center; /* Centers the items inside the stacked layout */
+  }
+}
+
+  /* REMOVED INDIVIDUAL GLASS EFFECT */
+  .glass-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+ .glass-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+
+  /* LOGO */
+  .logo-box {
+    width: 28px;
+    height: 28px;
+    background: var(--primary-text-color);
+    color: var(--accent-color); /* Replaced #1a2d59 with your accent color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-lg-size);
+    font-weight: var(--big-text-black-weight); /* 900 */
+  }
+
+  .logo-text {
+    color: var(--primary-text-color);
+    font-size: var(--text-lg-size);
+    font-weight: var(--text-weight); /* 900 */
+    letter-spacing: 0.5px;
+  }
+
+  /* STUDIO TEXT */
+  .studio-text {
+    color: var(--primary-text-color);
+    font-size: var(--text-sm-size);
+    font-weight: var(--h1-light-weight); /* 900 */
+    letter-spacing: 0.4px;
+    margin-left: -12px;
+  }
+
+  /* RIGHT MENU */
+  .glass-menu a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-size: var(--text-lg-size);
+    font-weight: var(--h1-light-weight);
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+  }
+
+  .glass-menu a:hover {
+    opacity: 0.7;
+    color: var(--secondary-text-color); 
+  }
+</style>

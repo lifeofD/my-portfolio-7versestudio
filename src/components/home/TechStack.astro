@@ -1,0 +1,373 @@
+---
+---
+<div class="tech-stack-wrap">
+  <section class="section--all">
+    <div class="techstack">
+      <div class="orbit-wrapper">
+
+  <!-- INNER RING -->
+  <div class="ring ring-1">
+
+    <div class="tag seo">
+      <span>SEO</span>
+    </div>
+
+    <div class="tag php">
+      <span>PHP</span>
+    </div>
+
+  </div>
+
+
+  <!-- MIDDLE RING -->
+  <div class="ring ring-2">
+
+    <div class="tag growth">
+      <span>Growth</span>
+    </div>
+
+    <div class="tag html">
+      <span>HTML</span>
+    </div>
+
+  </div>
+
+
+  <!-- OUTER RING -->
+  <div class="ring ring-3">
+
+    <div class="tag css">
+      <span>CSS</span>
+    </div>
+
+    <div class="tag astro">
+      <span>ASTRO</span>
+    </div>
+
+    <div class="tag design">
+      <span>DESIGN</span>
+    </div>
+
+    <div class="tag wordpress">
+      <span>WordPress</span>
+    </div>
+
+    <div class="tag webflow">
+      <span>Webflow</span>
+    </div>
+
+    <div class="tag js">
+      <span>JS</span>
+    </div>
+
+  </div>
+
+
+  <!-- CENTER TEXT -->
+  <h1 class="center-text">Stack</h1>
+
+</div>
+    </div>
+  </section>
+</div>
+
+<style>
+
+:root {
+  /* UI */
+  --radius-sm: 4px;
+}
+
+.tech-stack-wrap {
+  background: linear-gradient(180deg,rgba(20, 20, 20, 0.7) 0%, rgba(20, 20, 20, 0.9) 30%, rgba(16, 16, 16, 1) 100%);
+}
+
+
+.techstack {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  }
+
+
+/* =========================
+   WRAPPER
+========================= */
+
+.orbit-wrapper {
+
+  /* MASTER RESPONSIVE SIZE */
+  --orbit-size: min(92vw, 92vh, 600px);
+
+  position: relative;
+
+  width: var(--orbit-size);
+  aspect-ratio: 1;
+      margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================
+   RINGS
+========================= */
+
+.ring {
+  position: absolute;
+
+  border: 1px solid rgba(248, 243, 240, 0.25);
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* =========================
+   RING SIZES + ANIMATION
+========================= */
+
+.ring-1 {
+  width: 36.6%;
+  height: 36.6%;
+
+  animation: orbit-clockwise 48s linear infinite;
+}
+
+.ring-2 {
+  width: 60%;
+  height: 60%;
+
+  animation: orbit-counter 96s linear infinite;
+}
+
+.ring-3 {
+  width: 86.6%;
+  height: 86.6%;
+
+  animation: orbit-clockwise 108s linear infinite;
+}
+
+
+/* =========================
+   ORBIT ANIMATIONS
+========================= */
+
+@keyframes orbit-clockwise {
+
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+}
+
+@keyframes orbit-counter {
+
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+}
+
+
+/* =========================
+   CENTER TEXT
+========================= */
+
+.center-text {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  margin: 0;
+
+  color: var(--primary-text-color);
+
+  font-size: clamp(1.1rem, 4vw, 2rem);
+  font-weight: 500;
+  line-height: 1;
+
+  z-index: 10;
+}
+
+
+/* =========================
+   TAG WRAPPER
+========================= */
+
+.tag {
+  position: absolute;
+}
+
+
+/* =========================
+   RECTANGLE DESIGN
+========================= */
+
+.tag span {
+
+  display: inline-block;
+
+  background: var(--primary-text-color);
+  color: var(--secondary-background);
+
+  padding:
+    clamp(0.22rem, 0.8vw, 0.4rem)
+    clamp(0.45rem, 1.6vw, 0.75rem);
+
+  border-radius: var(--radius-sm);
+
+  font-size: clamp(0.55rem, 1.4vw, 0.875rem);
+
+  font-weight: 400;
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   KEEP RECTANGLES STRAIGHT
+========================= */
+
+.ring-1 .tag span {
+  animation: counter-clockwise 48s linear infinite;
+}
+
+/* reverse because parent rotates reverse */
+.ring-2 .tag span {
+  animation: counter-reverse 96s linear infinite;
+}
+
+.ring-3 .tag span {
+  animation: counter-clockwise 108s linear infinite;
+}
+
+
+@keyframes counter-clockwise {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+
+}
+
+@keyframes counter-reverse {
+
+  from {
+    transform: rotate(-360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+
+}
+
+
+/* =========================
+   INNER RING POSITIONS
+========================= */
+
+.seo {
+  top: -4%;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.php {
+  bottom: -2%;
+  left: 28%;
+}
+
+
+/* =========================
+   MIDDLE RING POSITIONS
+========================= */
+
+.growth {
+  left: -6%;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.html {
+  right: -4%;
+  top: 72%;
+}
+
+
+/* =========================
+   OUTER RING POSITIONS
+========================= */
+
+.css {
+  top: -3%;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.astro {
+  top: 10%;
+  right: 12%;
+}
+
+.design {
+  right: -6%;
+  top: 45%;
+}
+
+.wordpress {
+  bottom: -3%;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.webflow {
+  left: -6%;
+  top: 70%;
+}
+
+.js {
+  left: 2%;
+  top: 18%;
+}
+
+
+/* =========================
+   MOBILE TWEAKS
+========================= */
+
+@media (max-width: 480px) {
+
+  .orbit-wrapper {
+    --orbit-size: 95vw;
+  }
+
+  .tag span {
+    border-radius: 3px;
+  }
+
+}
+
+</style>

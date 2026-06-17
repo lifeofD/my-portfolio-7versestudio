@@ -1,0 +1,292 @@
+---
+---
+<div class="hero">
+  <section class="section--all">
+    <div class="hero-wrap">
+      <div class="top-part-hero">
+        <h1 class="hero-heading">
+          Designing and Developing
+          <div></div>
+          Fast and Reliable - Modern Websites
+        </h1>
+        <a href="/contact" class="contact-block">
+  <h2 class="contact-block-text">
+    Let's Build Something Great Together
+  </h2>
+  <svg
+    width="32" 
+    height="20" 
+    viewBox="0 0 32 24" 
+    fill="none" 
+    stroke="var(--accent-color)" 
+    stroke-width="2" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    class="arrow-icon"
+  >
+    <line x1="2" y1="12" x2="27" y2="12"></line>
+    <polyline points="20 5 27 12 20 19"></polyline>
+  </svg>
+</a>
+      </div>
+      <div class="div-block-48">
+        <div class="card-1">
+          <img src="/laptop.webp" alt="laptop" />
+        </div>
+        <div class="card-2">
+          <img src="/gadgets.webp" alt="gadgets
+          " />
+        </div>
+        <div class="card-3">
+          <img src="/smart-devices.webp" alt="smart-devices" />
+        </div>
+      </div>
+      <div class="bottom-part-hero">
+        <h1 class="logo-heading">
+          7 VERSE
+        </h1>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+
+  /* MARGIN */
+
+  .hero {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .hero {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .hero {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero {
+    background-image: none;
+  }
+}
+
+
+
+.hero {
+  padding-top: 0px;
+  background-color: var(--primary-background-70op);
+}
+
+
+.hero-wrap {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  padding-top: 144px;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 48px;
+}
+
+@media (max-width: 479px) {
+  .hero-wrap {
+    height: auto;
+    padding-top: 96px;
+  }
+}
+
+.top-part-hero {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  gap: 96px;
+}
+
+.hero-heading {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--primary-text-color);
+  font-size: var(--h1-regular-size);
+  line-height: var(--h1-lineheight);
+  font-weight: var(--h1-regular-weight);
+  text-align: right;
+}
+
+@media (max-width: 479px) {
+  .hero-heading {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+
+
+
+.contact-block {
+  position: static;
+  padding: 12px 24px;
+  aspect-ratio: auto;
+  border-radius: 50px;
+  background-color: var(--primary-text-color);
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: auto;
+  display: inline-flex;
+  gap: 8px;
+}
+
+
+
+  
+.contact-block.-wfp-hover,
+.contact-block:hover {
+  box-shadow: 0 0 0 6px var(--accent-color);
+  transform: scale(1.05);
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+/* Hover effect: moves the arrow to the right */
+  .contact-block:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+
+
+.contact-block-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--accent-color);
+  font-size: var(--text-lg-size);
+  line-height: var(--text-lg-size);
+  font-weight: var(--h2-medium-weight);
+}
+
+.div-block-48 {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .div-block-48 {
+    position: static;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .div-block-48 {
+    position: static;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+}
+
+
+/* CARD ANIMATION */
+
+.card-1 {
+  animation: floatRight1 10s ease-in-out infinite;
+}
+
+.card-2 {
+  margin-left: 8px;
+  animation: floatRight2 12s ease-in-out infinite;
+}
+
+@media screen and (max-width: 767px) {
+  .card-2 {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .card-2 {
+    margin-left: 6px;
+  }
+}
+
+
+.card-3 {
+  animation: floatRight3 8s ease-in-out infinite;
+}
+
+@keyframes floatRight1 {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+@keyframes floatRight2 {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes floatRight3 {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+
+/* CARD ANIMATION */
+
+
+
+.bottom-part-hero {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.logo-heading {
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--primary-text-color);
+  font-size: 16vw;
+  line-height: 16rem;
+  font-weight: var(--big-text-black-weight);
+  transition: color 0.3s ease;
+}
+
+.logo-heading:hover {
+  color: var(--accent-color);
+}
+
+
+@media screen and (max-width: 479px) {
+  .logo-heading {
+    line-height: 4rem;
+  }
+}
+
+
+</style>

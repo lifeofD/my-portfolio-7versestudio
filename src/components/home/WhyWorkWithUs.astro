@@ -1,0 +1,177 @@
+---
+---
+<div class="why-work-with-us-wrap">
+  <section class="section--all">
+    <div class="with-us-wrap">
+      <h2 class="heading-1 reveal-element">
+        Why Work With Us
+      </h2>
+      <div>
+        <div class="div-block-text">
+          <h2 class="headingfig-2 reveal-element">
+            Minimal & Modern Design
+          </h2>
+          <p class="paragraph-1 reveal-element">
+            We create clean, contemporary designs that enhance user experience and strengthen your brand identity.
+          </p>
+        </div>
+        <div class="div-block-text">
+          <h2 class="headingfig-2 reveal-element">
+            Mobile-First Development
+          </h2>
+          <p class="paragraph-1 reveal-element">
+            Every website is built with a mobile-first approach, ensuring seamless performance across all devices.
+          </p>
+        </div>
+        <div class="div-block-text">
+          <h2 class="headingfig-2 reveal-element">
+            Fastest-Loading Websites
+          </h2>
+          <p class="paragraph-1 reveal-element">
+            Our optimized development process delivers high-speed websites for better engagement and improved SEO.
+          </p>
+        </div>
+        <div class="div-block-text">
+          <h2 class="headingfig-2 reveal-element">
+            Clear & Transparent Communication
+          </h2>
+          <p class="paragraph-1 reveal-element">
+            We maintain open, consistent communication to keep you informed at every stage of the project.
+          </p>
+        </div>
+        <div class="div-block-text">
+          <h2 class="headingfig-2 reveal-element">
+            Long-Term Support
+          </h2>
+          <p class="paragraph-1 reveal-element">
+            We provide ongoing maintenance and technical support to ensure your website continues to perform at its best.
+          </p>
+        </div>
+        <div class="div-block-text">
+          <h2 class="headingfig-2 reveal-element">
+            Unlimited Revisions
+          </h2>
+          <p class="paragraph-1 reveal-element">
+            Your satisfaction is our priority. We offer unlimited revisions to ensure the final product meets your expectations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<style>
+    /* MARGIN */
+
+  .why-work-with-us-wrap {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .why-work-with-us-wrap {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .why-work-with-us-wrap {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .why-work-with-us-wrap {
+    background-image: none;
+  }
+}
+
+.why-work-with-us-wrap {
+  background-color: var(--primary-background);
+}
+
+.with-us-wrap {
+  display: flex;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  flex-flow: column;
+  gap: 48px;
+}
+
+@media screen and (max-width: 767px) {
+  .with-us-wrap {
+    padding-top: 48px;
+  padding-bottom: 48px;
+  }
+}
+
+
+.heading-1 {
+  color: var(--primary-text-color);
+  font-size: var(--h1-regular-size);
+  line-height: var(--h1-lineheight);
+  font-weight: var(--h1-regular-weight);
+}
+
+.div-block-text {
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top-style: solid;
+  border-top-width: 0.4px;
+  border-top-color: var(--secondary-text-color);
+}
+
+@media screen and (max-width: 991px) {
+  .div-block-text {
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .div-block-text {
+    flex-flow: column;
+  }
+}
+
+.headingfig-2 {
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--primary-text-color);
+  font-size: var(--h2-medium-size);
+  line-height: 20px;
+  font-weight: var(--h2-medium-weight);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.headingfig-2:hover {
+  background-color: var(--primary-text-color);
+  color: var(--accent-color);
+}
+
+
+.paragraph-1 {
+  max-width: 500px;
+  margin: 0px;
+  color: var(--secondary-text-color);
+  font-size: var(--text-lg-size);
+  line-height: var(--text-lg-lineheight-less);
+  font-weight: var(--text-weight);
+  transition: color 0.3s ease;
+}
+
+.paragraph-1:hover {
+  color: var(--primary-text-color);
+}
+
+
+
+
+
+
+</style>

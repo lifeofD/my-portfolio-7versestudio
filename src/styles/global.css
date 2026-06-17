@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family:
+    "Satoshi",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  src: url("../assets/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 900; /* variable font range */
+  font-display: swap;
+}
+
+:root {
+  /* Colors */
+  --primary-background: #141414;
+  --primary-background-40op: rgba(20, 20, 20, 0.4);
+  --primary-background-70op: rgba(20, 20, 20, 0.7);
+  --secondary-background: #101010;
+  --primary-text-color: #f8f3f0;
+  --secondary-text-color: #a2a7ae;
+  --accent-color: #014baa;
+
+  /* Typography */
+  --font-primary: "Satoshi", sans-serif;
+
+  --h1-regular-weight: 400;
+  --h1-lineheight: 3.75rem;
+  --h1-light-weight: 300;
+  --h1-regular-size: 3rem;
+  --h2-medium-size: 1.25rem;
+  --h2-medium-weight: 500;
+  --text-lg-size: 1.25rem;
+  --text-weight: 400;
+  --text-lg-lineheight-less: 1.6875rem;
+  --text-lg-lineheight-more: 2.1875rem;
+  --text-sm-size: 0.875rem;
+  --text-sm-lineheight: 1.5rem;
+  --big-text-black-size: 8rem;
+  --big-text-black-weight: 900;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --h1-regular-weight: 400;
+    --h1-lineheight: clamp(2.5rem, 5vw, 3.75rem);
+    --h1-light-weight: 300;
+    --h1-regular-size: clamp(2rem, 4vw, 3rem);
+    --h2-medium-size: clamp(1rem, 1.5vw, 1.25rem);
+    --h2-medium-weight: 500;
+    --text-lg-size: clamp(1rem, 1.5vw, 1.25rem);
+    --text-weight: 400;
+    --text-lg-lineheight-less: clamp(1.4rem, 2vw, 1.6875rem);
+    --text-lg-lineheight-more: clamp(1.6rem, 2.5vw, 2.1875rem);
+    --text-sm-size: 0.875rem;
+    --text-sm-lineheight: 1.5rem;
+    --big-text-black-size: 6rem;
+    --big-text-black-weight: 900;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --h1-regular-weight: 400;
+    --h1-lineheight: 2.5rem;
+    --h1-light-weight: 300;
+    --h1-regular-size: 2rem;
+    --h2-medium-size: 1rem;
+    --h2-medium-weight: 500;
+    --text-lg-size: 1rem;
+    --text-weight: 400;
+    --text-lg-lineheight-less: 1.4rem;
+    --text-lg-lineheight-more: 1.6rem;
+    --text-sm-size: 0.875rem;
+    --text-sm-lineheight: 1.5rem;
+    --big-text-black-size: 4rem;
+    --big-text-black-weight: 900;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  flex-direction: column;
+
+  color: var(--primary-text-color);
+  font-family: var(--font-primary);
+  font-synthesis: none;
+
+  /* Base color */
+  background-color: var(--primary-background);
+
+  /* Desktop background */
+  background-image: url("/background-image.webp") !important;
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    background-image: url("/background-image-s.webp");
+
+    /* Better mobile performance */
+    background-attachment: scroll;
+  }
+}
+
+.section--all {
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+}

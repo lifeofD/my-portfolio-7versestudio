@@ -1,0 +1,326 @@
+---
+---
+<div class="services">
+  <section class="section--all">
+    <div class="services-wrap">
+      <h2 class="heading-services reveal-element">
+        SERVICES
+      </h2>
+      <div class="service-div-wrap">
+        <div class="grid-8">
+          <div class="image-wrap reveal-element" id="serviceImage"></div>
+          <div class="service-text-wrap">
+            <div class="div-padding-for-text">
+              <div class="brand-identity-wrap reveal-element" data-image="/design.webp">
+                <h3 class="services-text">
+                  ** DESIGN
+                </h3>
+                <div class="services-list-wrap">
+                  <p class="services-list">
+                    UI/UX Design
+                    <br>
+                    Website Design
+                    <br>
+                    Graphic Design
+                    <br>
+                    Social Media Creatives
+                    
+                  </p>
+                </div>
+              </div>
+              <div class="brand-identity-wrap reveal-element" data-image="/brand-identity.webp">
+                <h3 class="services-text">
+                  ** BRAND IDENTITY
+                </h3>
+                <div class="services-list-wrap">
+                  <p class="services-list">
+                    Logo Design
+                    <br>
+                    Brand Colors
+                    <br>
+                    Typography
+                    <br>
+                    Icons & Graphics
+                    <br>
+                    Brand Guidelines
+                  </p>
+                </div>
+              </div>
+              <div class="brand-identity-wrap reveal-element" data-image="/development.webp">
+                <h3 class="services-text">
+                  ** DEVELOPMENT
+                </h3>
+                <div class="services-list-wrap">
+                  <p class="services-list">
+                    Web Development
+                   <br>
+                    WordPress
+                    <br>
+                    Webflow
+                    <br>
+                    Astro
+                   <br>
+                    SEO & Speed
+                    <br>
+                    Security Setup
+                    <br>
+                    Website Maintenance
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<script>
+  const imageWrap = document.getElementById("serviceImage");
+  const serviceItems = document.querySelectorAll(".brand-identity-wrap");
+
+  serviceItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const image = item.dataset.image;
+
+      imageWrap.style.opacity = "0";
+
+      setTimeout(() => {
+        imageWrap.style.backgroundImage = `url('${image}')`;
+        imageWrap.style.opacity = "1";
+      }, 600);
+    });
+  });
+</script>
+
+
+
+
+<style>
+    /* MARGIN */
+
+.services {
+  padding-inline: 16px; /* applies below 425px */
+}
+
+
+/* 425px → 768px */
+@media (min-width: 425px) {
+  .services {
+    padding-inline: clamp(16px, calc(4.66vw - 3.8px), 32px);
+  }
+}
+
+/* 768px → 1272px */
+@media (min-width: 768px) {
+  .services {
+    padding-inline: clamp(32px, calc(10.32vw - 47.3px), 84px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .services {
+    background-image: none;
+  }
+}
+
+.services {
+  background-image: linear-gradient(180deg, var(--accent-color) 4%, var(--primary-background) 96%);
+}
+
+
+
+.services-wrap {
+  display: flex;
+  padding-top: 84px;
+  padding-bottom: 96px;
+  flex-flow: column;
+  gap: 24px;
+}
+
+.heading-services {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--secondary-text-color);
+  color: var(--primary-text-color);
+  font-size: var(--text-lg-size);
+  line-height: 18px;
+  font-weight: var(--h1-light-weight);
+}
+
+  .reveal-element {
+    opacity: 0;
+    /* Pushed down slightly. It will travel upwards to 0 */
+    transform: translateY(30px); 
+    will-change: opacity, transform;
+  }
+
+
+.service-div-wrap {
+  position: static;
+  padding: 24px;
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+  background-color: var(--secondary-background);
+}
+
+@media screen and (max-width: 479px) {
+  .service-div-wrap {
+    padding: 0px;
+  }
+}
+
+.grid-8 {
+  justify-items: stretch;
+  grid-template-rows: auto;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media screen and (max-width: 767px) {
+    .grid-8 {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto auto;
+    }
+}
+
+.image-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-auto-columns: 1fr;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  background-image: url("/brand-identity.webp");
+  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  transition: opacity 1.2s ease;
+}
+
+
+@media screen and (max-width: 767px) {
+  .image-wrap {
+    padding: 220px 140px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-position: 50% 50%;
+    grid-area: span 4 / span 3 / span 4 / span 3;
+  }
+
+}
+@media screen and (max-width: 479px) {
+  .image-wrap {
+    padding: 180px 120px;
+  }
+
+}
+
+
+.service-text-wrap {
+  display: block;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 72px;
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+}
+
+@media screen and (max-width: 767px) {
+  .service-text-wrap {
+    grid-area: span 1 / span 3 / span 1 / span 3;
+  }
+}
+
+.div-padding-for-text {
+  display: flex;
+  padding: 60px;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 48px;
+}
+
+@media screen and (max-width: 1280px) {
+  .div-padding-for-text {
+    padding: 48px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .div-padding-for-text {
+    padding: 24px;
+  }
+}
+
+.brand-identity-wrap {
+  display: flex;
+  max-width: 100%;
+  min-width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+@media screen and (max-width: 479px) {
+  .brand-identity-wrap {
+    flex-flow: column;
+    gap: 12px;
+  }
+}
+
+.services-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: var(--primary-text-color);
+  font-size: var(--text-lg-size);
+  font-weight: var(--h2-medium-weight);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.services-text:hover {
+  background-color: var(--primary-text-color);
+  color: var(--accent-color);
+}
+
+
+.services-list-wrap {
+  max-width: 218px;
+  min-width: 218px;
+}
+
+@media screen and (max-width: 991px) {
+  .services-list-wrap {
+    max-width: 180px;
+    min-width: 180px;
+  }
+}
+
+
+.services-list {
+  margin: 0px;
+  color: var(--secondary-text-color);
+  font-size: var(--text-lg-size);
+  line-height: var(--text-lg-lineheight-more);
+  transition: color 0.3s ease;
+}
+
+
+.services-list:hover {
+  color: var(--primary-text-color);
+}
+
+
+
+</style>
