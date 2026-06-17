@@ -90,6 +90,8 @@ body {
   padding: 0;
   min-height: 100vh;
   flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
 
   color: var(--primary-text-color);
   font-family: var(--font-primary);

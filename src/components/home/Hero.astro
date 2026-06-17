@@ -98,10 +98,11 @@
   gap: 48px;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .hero-wrap {
     height: auto;
     padding-top: 96px;
+    padding-bottom: 64px; /* Creates clean breathing room before SubHero starts */
   }
 }
 
@@ -185,17 +186,16 @@
 @media screen and (max-width: 767px) {
   .div-block-48 {
     position: static;
-    flex-flow: row;
-    justify-content: space-between;
+    flex-flow: column;
+    align-items: center;
+    gap: 16px;
   }
 }
 
-@media screen and (max-width: 479px) {
-  .div-block-48 {
-    position: static;
-    flex-flow: column;
-    justify-content: space-between;
-  }
+.div-block-48 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 

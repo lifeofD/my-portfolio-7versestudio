@@ -80,6 +80,7 @@
 
 .tech-stack-wrap {
   background: linear-gradient(180deg,rgba(20, 20, 20, 0.7) 0%, rgba(20, 20, 20, 0.9) 30%, rgba(16, 16, 16, 1) 100%);
+  overflow: hidden;
 }
 
 
@@ -358,16 +359,20 @@
    MOBILE TWEAKS
 ========================= */
 
-@media (max-width: 480px) {
-
+@media (max-width: 768px) {
   .orbit-wrapper {
-    --orbit-size: 95vw;
+    --orbit-size: clamp(280px, 80vw, 500px); /* Leaves a 10vw margin on each side for rotating tags */
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit-wrapper {
+    --orbit-size: clamp(280px, 78vw, 360px); /* Extra margin on small phone screens */
   }
 
   .tag span {
     border-radius: 3px;
   }
-
 }
 
 </style>
