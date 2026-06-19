@@ -5,14 +5,8 @@
 }
 
 @font-face {
-  font-family:
-    "Satoshi",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  src: url("../assets/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-family: "Satoshi";
+  src: url("../assests/fonts/Satoshi-Variable.woff2") format("woff2");
   font-style: normal;
   font-weight: 300 900; /* variable font range */
   font-display: swap;
@@ -29,7 +23,9 @@
   --accent-color: #014baa;
 
   /* Typography */
-  --font-primary: "Satoshi", sans-serif;
+  --font-primary:
+    "Satoshi", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 
   --h1-regular-weight: 400;
   --h1-lineheight: 3.75rem;
