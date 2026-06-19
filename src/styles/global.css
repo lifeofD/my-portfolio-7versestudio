@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Satoshi";
-  src: url("../assests/fonts/Satoshi-Variable.woff2") format("woff2");
+  src: url("../Satoshi-Variable.woff2") format("woff2");
   font-style: normal;
   font-weight: 300 900; /* variable font range */
   font-display: swap;
